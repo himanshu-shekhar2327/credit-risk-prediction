@@ -1,69 +1,74 @@
-# German Credit Risk Prediction  
+# Credit Risk Prediction App  
 
-This project predicts **credit risk** (Good vs Bad) using the **German Credit Dataset** from Kaggle.  
-The goal is to explore end-to-end machine learning workflow: data preprocessing, visualization, model training, hyperparameter tuning, and evaluation.  
-
----
-
-## 📊 Dataset  
-- Source: Kaggle – German Credit Dataset  
-- Features: 8 selected features including Age, Sex, Job, Housing, Saving accounts, Checking account, Credit amount, Duration.  
-- Target: Credit Risk (0 = Bad, 1 = Good).  
+A machine learning project that predicts **credit risk** (Good/Bad) using the **German Credit Dataset** from Kaggle.  
+The model is built with **XGBoost** and integrated into an interactive **Streamlit web app** for easy predictions.  
 
 ---
 
-## ⚙️ Workflow  
-1. **Data Exploration & Cleaning**  
-   - Handled missing values (dropped rows with nulls).  
-   - Explored dataset with `describe()`, `info()`, and shape checks.  
-   - Visualized data using box plots, violin plots, scatter plots, heatmaps, and count plots.  
+## 🚀 Project Workflow  
+1. **Data Preprocessing**  
+   - Loaded dataset from Kaggle (German Credit Risk dataset).  
+   - Handled missing values (dropped for this version).  
+   - Encoded categorical features with `LabelEncoder`.  
+   - Performed data visualization (boxplots, violin plots, heatmaps, etc.).  
 
-2. **Feature Engineering**  
-   - Label encoding applied to categorical columns (`Sex`, `Housing`, `Saving accounts`, `Checking account`).  
-   - Stored encoders with `joblib` for consistent transformations.  
-
-3. **Model Training & Tuning**  
-   - Tried multiple models:  
+2. **Modeling**  
+   - Trained and evaluated multiple models:  
      - Decision Tree  
      - Random Forest  
      - Extra Trees  
-     - XGBoost  
-   - Applied **GridSearchCV** for hyperparameter tuning.  
+     - XGBoost (Best Model)  
+   - Tuned hyperparameters using GridSearchCV.  
+   - Final model achieved:  
+     - **Accuracy:** ~67%  
+     - **Precision & Recall balanced** (better for risk prediction).  
 
-4. **Evaluation**  
-   - Compared accuracy, precision, recall, F1-score.  
-   - Best model: **XGBoost** with ~68% accuracy.  
-   - Confusion Matrix used to analyze predictions.  
-
-5. **Model Saving**  
-   - Final trained XGBoost model saved with `joblib` → `best_xgb.pkl`.  
-   - Encoders saved separately for deployment.  
-
----
-
-## 🚀 Tech Stack  
-- **Languages:** Python  
-- **Libraries:** Pandas, NumPy, Scikit-learn, XGBoost, Matplotlib, Seaborn, Joblib  
-- **Tools:** Jupyter Notebook  
+3. **Deployment / Integration**  
+   - Saved model and encoders using `joblib`.  
+   - Built a **Streamlit app** for real-time prediction.  
+   - Users can input applicant details (age, job, accounts, credit, etc.) and get instant risk classification.  
 
 ---
 
-## 📈 Results  
-- **Best Model:** XGBoost  
-- **Final Accuracy:** ~68%  
-- **Key Insight:** Credit risk prediction is highly dependent on account details (`Saving accounts`, `Checking accounts`) and loan amount/duration.  
+## 📊 Results (XGBoost)  
+- **Accuracy:** 67.6%  
+- **Confusion Matrix:**  
+  - Good Risk correctly identified ~73%  
+  - Bad Risk correctly identified ~61%  
 
 ---
 
-## 🔮 Future Improvements  
-- Handle missing values with imputation instead of dropping.  
-- Balance dataset (if imbalanced) using SMOTE or class weights.  
-- Deploy model with **Streamlit/Flask** for interactive use.  
-- Experiment with deep learning models.  
+## 🖥️ Tech Stack  
+- **Python** (pandas, numpy, scikit-learn, xgboost)  
+- **Streamlit** (web app interface)  
+- **Matplotlib / Seaborn** (visualizations)  
+- **Joblib** (model persistence)  
 
 ---
 
-## 👨‍💻 Author  
-- **Himanshu Shekhar** – Enthusiast Data Scientist and ML Engineer 
-- 📧 Contact: [himanshu.shekhar0505@gmail.com]  
-- 🌐 Portfolio: [your-portfolio-link]  
+## 📸 App Preview  
+![App Screenshot](image.png)  
+
+---
+
+## ⚡ How to Run Locally  
+
+```bash
+# Clone the repo
+git clone https://github.com/himanshu-shekhar2327/credit-risk-prediction.git
+cd credit-risk-prediction
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the Streamlit app
+streamlit run app.py
+
+
+👨‍💻 Author
+
+Himanshu Shekhar – Enthusiast Data Scientist and ML Engineer
+
+📧 Contact: himanshu.shekhar0505@gmail.com
+
+🌐 LinkedIn: https://www.linkedin.com/in/himanshu-shekhar-8a037a233/
